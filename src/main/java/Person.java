@@ -1,10 +1,11 @@
 public class Person {
     int id;
-    float temp;
+    String name;
+    double temp;
     int hour;
     int min;
     boolean abroad_visit;
-    String date;
+    String Regdate;
 
     public int getId() {
         return id;
@@ -14,11 +15,19 @@ public class Person {
         this.id = id;
     }
 
-    public float getTemp() {
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public double getTemp() {
         return temp;
     }
 
-    public void setTemp(float temp) {
+    public void setTemp(double temp) {
         this.temp = temp;
     }
 
@@ -46,11 +55,11 @@ public class Person {
         this.abroad_visit = abroad_visit;
     }
 
-    public String getDate() {
-        return date;
+    public String getRegdate() {
+        return Regdate;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setRegdate(String regdate) {
+        Regdate = regdate;
     }
 }
