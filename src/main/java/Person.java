@@ -4,8 +4,8 @@ public class Person {
     double temp;
     int hour;
     int min;
-    boolean abroad_visit;
-    String Regdate;
+    String abroad_visit;
+    String regDate;
 
     public int getId() {
         return id;
@@ -47,19 +47,19 @@ public class Person {
         this.min = min;
     }
 
-    public boolean isAbroad_visit() {
+    public String getAbroad_visit() {
         return abroad_visit;
     }
 
-    public void setAbroad_visit(boolean abroad_visit) {
+    public void setAbroad_visit(String abroad_visit) {
         this.abroad_visit = abroad_visit;
     }
 
-    public String getRegdate() {
-        return Regdate;
+    public String getRegDate() {
+        return regDate;
     }
 
-    public void setRegdate(String regdate) {
-        Regdate = regdate;
+    public void setRegDate(String regDate) {
+        this.regDate = regDate;
     }
 }
