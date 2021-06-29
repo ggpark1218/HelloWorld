@@ -65,6 +65,6 @@ public class Person {
 
     @Override
     public String toString() {
-        return this.id + "   " + this.name + "  " + this.temp + "  " + this.hour + "\t" + this.min + "\t\t" + this.abroad_visit + "\t\t" + this.regDate;
+        return this.id + "   " + this.name + "  " + this.temp + "  " + this.hour + "    " + this.min + "\t\t" + this.abroad_visit + "\t\t" + this.regDate;
     }
 }
