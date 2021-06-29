@@ -62,4 +62,9 @@ public class Person {
     public void setRegDate(String regDate) {
         this.regDate = regDate;
     }
+
+    @Override
+    public String toString() {
+        return this.id + "   " + this.name + "  " + this.temp + "  " + this.hour + "\t" + this.min + "\t\t" + this.abroad_visit + "\t\t" + this.regDate;
+    }
 }

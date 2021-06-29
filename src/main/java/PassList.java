@@ -15,9 +15,6 @@ public class PassList {
         this.list = new ArrayList<>();
     }
 
-
-    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-
     void printMenu(){
         System.out.println("----menu----");
         System.out.println("1. 조회 ");
@@ -26,6 +23,7 @@ public class PassList {
         System.out.println("4. 삭제 ");
         System.out.println("0. 종료 ");
         System.out.println("-----------");
+        System.out.println("숫자를 입력하세요 (ex. 1): ");
     }
 
     public boolean choice (String s){
@@ -65,22 +63,21 @@ public class PassList {
 
     private void createData(){
         Person person = new Person();
+        br = new BufferedReader(new InputStreamReader(System.in));
         try {
             System.out.println("이름 (ex. 박규경):");
-            br = new BufferedReader(new InputStreamReader(System.in));
-            String line = br.readLine();
-            person.setName(line);
+            person.setName(br.readLine());
             System.out.println("체온 (ex. 36.5):");
-            person.setTemp(Double.parseDouble(line));
+            person.setTemp(Double.parseDouble(br.readLine()));
             System.out.println("방문 시간(시 ex. 13):");
-            person.setHour(Integer.parseInt(line));
+            person.setHour(Integer.parseInt(br.readLine()));
             System.out.println("방문 시간(분 ex. 00):");
-            person.setMin(Integer.parseInt(line));
-            System.out.println("111이주 내 해외 방문 여부(y/n):");
+            person.setMin(Integer.parseInt(br.readLine()));
+            System.out.println("이주 내 해외 방문 여부(y/n):");
+            String yn = br.readLine();
 
-
-            if(line.equals("y")||line.equals("n")) {
-                person.setAbroad_visit(line);
+            if(yn.equals("y")||yn.equals("n")) {
+                person.setAbroad_visit(yn);
             }
             else {
                 System.out.println("잘못 입력하셨습니다.");
@@ -89,35 +86,36 @@ public class PassList {
         catch (IOException e){
             e.printStackTrace();
         }
-        System.out.println("test");
         person.setId(this.list.size());
+
         LocalDate date = LocalDate.now();
-        String regDate = date.format(formatter);
-        person.setRegDate(regDate);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        String Date = date.format(formatter);
+        person.setRegDate(Date);
 
         this.list.add(person);
         System.out.println("추가 완료");
     }
 
     private void updateDate(){
-//        readData();
         try {
             System.out.println("수정할 항목의 ID를 입력하세요.(ex. 1)");
             br = new BufferedReader(new InputStreamReader(System.in));
-            String line = br.readLine();
-            int id = Integer.parseInt(line);
+
+            int id = Integer.parseInt(br.readLine());
             if(valid(id)){
                 System.out.println("이름 (ex. 박규경):");
-                this.list.get(id).setName(line);
+                this.list.get(id).setName(br.readLine());
                 System.out.println("체온 (ex. 36.5):");
-                this.list.get(id).setTemp(Double.parseDouble(line));
+                this.list.get(id).setTemp(Double.parseDouble(br.readLine()));
                 System.out.println("방문 시간(시 ex. 13):");
-                this.list.get(id).setHour(Integer.parseInt(line));
+                this.list.get(id).setHour(Integer.parseInt(br.readLine()));
                 System.out.println("방문 시간(분 ex. 00):");
-                this.list.get(id).setMin(Integer.parseInt(line));
+                this.list.get(id).setMin(Integer.parseInt(br.readLine()));
                 System.out.println("이주 내 해외 방문 여부(y/n):");
-                if(line.equals("y")||line.equals("n")) {
-                    this.list.get(id).setAbroad_visit(line);
+                String yn = br.readLine();
+                if(yn.equals("y")||yn.equals("n")) {
+                    this.list.get(id).setAbroad_visit(yn);
                 }else {
                     System.out.println("잘못 입력하셨습니다.");
                 }

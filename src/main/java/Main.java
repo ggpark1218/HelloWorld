@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String args[]){
         PassList passList = new PassList();
-        System.out.println("숫자를 입력해주세요 (ex. 1)");
+        System.out.println("시작!");
         boolean check = true;
 
         while (check){
